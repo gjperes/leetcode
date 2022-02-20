@@ -12,7 +12,7 @@
  * @param {function} isBadVersion()
  * @return {function}
  */
- var solution = function(isBadVersion) {
+ const solution = function(isBadVersion) {
     /**
      * @param {integer} n Total de versões
      * @return {integer} Primeira versão com erro
