@@ -1,10 +1,16 @@
 class TwoSum {
     public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; ++i) {
-            for (int j = 1; j < nums.length; ++j) {
-                if (nums[i] + nums[j] == target && i != j) return new int[]{i, j};
+        final Map<Integer, Integer> valuePositions = new HashMap<>(nums.length);
+        valuePositions.put(nums[0], 0);
+
+        for (int i = 1; i < nums.length; ++i) {
+            int lookup = target - nums[i];
+            if (valuePositions.containsKey(lookup)) {
+                return new int[]{valuePositions.get(lookup), i};
             }
+            valuePositions.put(nums[i], i);
         }
-        return null;
+
+        throw new IllegalArgumentException();
     }
 }
